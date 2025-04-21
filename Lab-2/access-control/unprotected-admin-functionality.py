@@ -16,3 +16,4 @@ carlos_delete_link = [link for link in soup.find_all('a') if 'carlos' in link.ge
 
 delete_uri = carlos_delete_link[0]['href']
 s.get(f'https://{site}{delete_uri}')
+
